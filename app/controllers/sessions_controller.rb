@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if !user.confirmed_at
         link = "<a href= '#{reconfirm_path(id: user.id)}'>Click here to resend verification email.</a>"
         flash[:error] = "Your email is not verified. Please verify before login. <br/> #{link}".html_safe
-        redirect_to :back
+        redirect_back fallback_location: root_path
       elsif user.authenticate(params[:password])
         session[:user_id] = user.id
         if params[:remember_me]

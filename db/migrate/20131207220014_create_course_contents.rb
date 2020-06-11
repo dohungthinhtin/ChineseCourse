@@ -1,4 +1,4 @@
-class CreateCourseContents < ActiveRecord::Migration
+class CreateCourseContents < ActiveRecord::Migration[4.2]
   def change
     create_table :course_contents do |t|
       t.integer :sequence

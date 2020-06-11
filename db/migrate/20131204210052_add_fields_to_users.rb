@@ -1,4 +1,4 @@
-class AddFieldsToUsers < ActiveRecord::Migration
+class AddFieldsToUsers < ActiveRecord::Migration[4.2]
   def change
     rename_column :users, :name, :last_name
     add_column :users, :first_name, :string, default: ""

@@ -1,4 +1,4 @@
-class AddHandoutToCourses < ActiveRecord::Migration
+class AddHandoutToCourses < ActiveRecord::Migration[4.2]
   def change
     add_column :courses, :handout, :string
   end

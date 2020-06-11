@@ -1,4 +1,4 @@
-class CreateSectionProgresses < ActiveRecord::Migration
+class CreateSectionProgresses < ActiveRecord::Migration[4.2]
   def change
     create_table :section_progresses do |t|
       t.references :user, index: true

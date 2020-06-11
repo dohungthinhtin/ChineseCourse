@@ -1,4 +1,4 @@
-class CreateResources < ActiveRecord::Migration
+class CreateResources < ActiveRecord::Migration[4.2]
   def change
     create_table :resources do |t|
       t.references :course, index: true
@@ -6,7 +6,7 @@ class CreateResources < ActiveRecord::Migration
       t.string :image
       t.text :description
       t.string :url
-      
+
       t.timestamps
     end
   end

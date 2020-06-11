@@ -23,7 +23,7 @@ class AttemptsController < ApplicationController
     @section = Section.find(params[:section])
     @quiz = Quiz.find(@section.quiz_id)
     @course = Course.find(@section.course_id)
-    @video = Video.find(@section.video_id)
+    @video = Video.find_by(id: @section.video_id)
     @attempt = Attempt.create(user_id: current_user.id,
                               course_id: @course.id,
                               section_id: @section.id,

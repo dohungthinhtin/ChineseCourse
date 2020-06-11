@@ -66,9 +66,9 @@ class UsersController < ApplicationController
       @user.save
       RegistrationMailer.registration_confirmation(@user,
         new_email_confirmation_url(token: @user.token)).deliver
-      redirect_to :back, notice: "A confirmation email has been re-sent! Please click link in email to verify your email address."
+        redirect_back fallback_location: root_path, notice: "A confirmation email has been re-sent! Please click link in email to verify your email address."
     else
-      redirect_to :back, notice: "User not found!!"
+      redirect_back fallback_location: root_path, notice: "User not found!!"
     end
 
   end

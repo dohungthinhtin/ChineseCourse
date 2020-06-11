@@ -1,4 +1,4 @@
-class ModifyResultsTable < ActiveRecord::Migration
+class ModifyResultsTable < ActiveRecord::Migration[4.2]
   def change
     add_reference :results, :questions, index: true, presence: true
     remove_column :results, :question_num

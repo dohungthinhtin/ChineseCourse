@@ -1,25 +1,31 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~>  4.0.0'
+gem 'rails', '~> 6.0', '>= 6.0.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
-gem 'coffee-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.0.3'
+gem 'sass-rails' # sass-rails needs to be higher than 3.2
+gem 'coffee-rails'
+gem 'uglifier'
 gem 'bootstrap-sass'
 
 
 group :development, :test do
+  gem 'letter_opener' # in development mode, open mail immediately in browser
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'rails_layout'
   gem 'railroady'
   gem "minitest-rails"
-  gem "autotest-rails"
+  gem 'byebug'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  # gem "autotest-rails"
+  # gem 'autotest-growl'
+  # gem 'autotest-fsevent'
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -30,12 +36,12 @@ end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'foreigner'
+# gem 'foreigner'
 gem 'cancan'
-gem 'figaro'
+gem 'figaro', '~> 1.2'
 gem 'redcarpet'
 gem 'prawn'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe'
 gem 'resque'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -44,7 +50,7 @@ gem 'mini_magick'
 # gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 
 
 
@@ -66,7 +72,7 @@ group :production do
 end
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'

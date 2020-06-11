@@ -1,4 +1,4 @@
-class CreateQuizResults < ActiveRecord::Migration
+class CreateQuizResults < ActiveRecord::Migration[4.2]
   def change
     create_table :quiz_results do |t|
       t.references :quiz_attempt, index: true
