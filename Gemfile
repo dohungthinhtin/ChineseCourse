@@ -73,6 +73,9 @@ end
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '3.1.2'
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+gem 'pagy', '~> 3.5'
+gem 'ransack'
 
 # Use unicorn as the app server
 # gem 'unicorn'

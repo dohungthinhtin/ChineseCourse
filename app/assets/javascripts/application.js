@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require bootstrap
 //= require_tree .
 //= require_tree ../../../vendor/assets/javascripts/.
@@ -32,21 +31,17 @@ function ytOnPlayerStateChange (state) {
     case 0:
       // Video ended
       $.post( "/events", { video: state.target.getVideoUrl(), status: "stop"} );
-      break;   
+      break;
     case 1:
       // Video is now playing
       $.post( "/events", { video: state.target.getVideoUrl(), status: "start"} );
-      break; 
+      break;
     case 2:
       // Video is now paused
       $.post( "/events", { video: state.target.getVideoUrl(), status: "stop"} );
-      break; 
+      break;
     case 3:
       // Video is now buffering
       break;
   }
 }
-
-
-
-

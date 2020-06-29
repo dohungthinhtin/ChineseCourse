@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2014_03_14_230154) do
+ActiveRecord::Schema.define(version: 2020_06_13_023938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2014_03_14_230154) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean "correct", default: false
+    t.bigint "library_question_id"
+    t.index ["library_question_id"], name: "index_answers_on_library_question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
@@ -78,6 +80,12 @@ ActiveRecord::Schema.define(version: 2014_03_14_230154) do
     t.string "handout"
     t.string "image"
     t.index ["user_id"], name: "index_courses_on_user_id"
+  end
+
+  create_table "library_questions", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "logs", id: :serial, force: :cascade do |t|

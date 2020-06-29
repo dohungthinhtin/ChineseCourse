@@ -45,6 +45,7 @@ class Ability
         can :destroy, Course
         can :take, Course
         can :manage, Quiz
+        can :manage, LibraryQuestion
         can :manage, Section
         can :manage, Video
         can :manage, User

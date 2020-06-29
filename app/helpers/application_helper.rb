@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def control_group_tag(errors, &block)
     if errors.any?
       content_tag :div, capture(&block), class: 'control-group error'
@@ -40,11 +42,11 @@ module ApplicationHelper
     return youtube_id
   end
 
-  def link_to_add_fields(name, f, association)
+  def link_to_add_fields(name, f, association, prefix = '')
     new_object = f.object.send(association).klass.new
     id = new_object.object_id
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
-      render(association.to_s.singularize + "_fields", f: builder)
+      render(prefix + association.to_s.singularize + "_fields", f: builder)
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
