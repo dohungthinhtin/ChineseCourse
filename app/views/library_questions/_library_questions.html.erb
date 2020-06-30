@@ -1,0 +1,5 @@
+<% @library_questions.each do |question| %>
+  <div class="article">
+    <td><%= link_to question.content.truncate(30), question %></td>
+  </div>
+<% end %>

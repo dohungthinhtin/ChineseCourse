@@ -1,11 +1,17 @@
 <fieldset>
   <%= f.label :content, "Question " %><br/>
-  <%= f.text_area :content , rows: 4, cols: 40, autofocus: true %><br/>
-  <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove Question" %>
-  <%= f.fields_for :answers do |answer| %>
-    <%= render 'answer_fields', f: answer, locals: {question_id: :id, question_content: :content} %>
-  <% end %>
+  <div class='row'>
+    <div class='col-md-4'>
+       <%= f.text_area :content , rows: 4, cols: 40, autofocus: true, 'data-behavior': :autocomplete %><br/>
+       <%= f.check_box :_destroy %>
+       <%= f.label :_destroy, "Remove Question" %>
+    </div>
+
+    <div class='col-md-8 grid answers-group'>
+      <%= f.fields_for :answers do |answer| %>
+      <%= render 'answer_fields', f: answer, locals: {question_id: :id, question_content: :content} %>
+    <% end %>
+    </div>
   <%= link_to_add_fields "Add Answer", f, :answers %>
 </fieldset>
 <br>

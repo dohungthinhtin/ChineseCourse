@@ -13,3 +13,12 @@
    color: #ffffff;
    border-color: #43158A;
 }
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}

@@ -22,6 +22,11 @@ StrategicHR::Application.routes.draw do
   resources :courses
   resources :videos
   resources :quizzes
+  resources :library_questions do
+    collection do
+      get :search
+    end
+  end
   resources :certificates, only: [:show, :index]
   resources :reports, only: [:index]
   resources :attempts

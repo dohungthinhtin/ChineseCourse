@@ -34,7 +34,7 @@
 <% if can? :create, Course %>
   <%= link_to "New Course", new_course_path, class: 'btn btn-primary btn-mini' %>
 <% end %>
-<% if can? :see_course_video_button, @course %>
+<% if (can? :see_course_video_button, @course) && Video.find_by(id: @next_section.video_id)%>
   <%= link_to "Watch Video", video_path(Video.find(@next_section.video_id)), class: 'btn btn-primary btn-mini' %>
 <% end %>
 <% if can? :view_handout, @course %>

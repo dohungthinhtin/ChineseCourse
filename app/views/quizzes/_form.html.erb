@@ -1,16 +1,25 @@
 <%= form_for @quiz do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, size: 40, placeholder: "name of quiz", required: true, autofocus: true  %>
+  <div class='row'>
+     <div class="field col-md-4">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, size: 40, placeholder: "name of quiz", required: true, autofocus: true  %>
+    </div>
+
+    <div class="field col-md-8">
+      <%= f.label :passing_score, "Minimum Passing Score:" %> <br />
+      <%= f.text_field :passing_score, size: 40, placeholder: "score required to pass quiz", required: true  %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :num_questions_to_show, "# Questions on a Quiz:"  %><br />
-    <%= f.text_field :num_questions_to_show, size: 40, placeholder: "# questions to show on quiz", required: true %>
+
+  <br>
+
+  <div class='row'>
+    <div class="field col-md-4">
+      <%= f.label :num_questions_to_show, "# Questions on a Quiz:"  %><br />
+      <%= f.text_field :num_questions_to_show, size: 40, placeholder: "# questions to show on quiz", required: true %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :passing_score, "Minimum Passing Score:" %> <br />
-    <%= f.text_field :passing_score, size: 40, placeholder: "score required to pass quiz", required: true  %>
-  </div>
+
   <br>
   <%= f.fields_for :questions do |question| %>
     <%= render 'question_fields', f: question %>
