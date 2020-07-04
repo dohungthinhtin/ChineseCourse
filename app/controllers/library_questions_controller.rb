@@ -63,7 +63,7 @@ class LibraryQuestionsController < ApplicationController
   private
 
   def library_question_params
-    params.require(:library_question).permit(:id, :content, :_destroy, answers_attributes: [:id, :content, :correct, :question_id, :created_at, :updated_at, :_destroy] )
+    params.require(:library_question).permit(:id, :content, { images: [] }, :audio, :_destroy, answers_attributes: [:id, :content, :correct, :question_id, :created_at, :updated_at, :_destroy] )
   end
 
 end

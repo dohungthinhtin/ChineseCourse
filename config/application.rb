@@ -10,6 +10,8 @@ Bundler.require(:default, Rails.env)
 module StrategicHR
   class Application < Rails::Application
     config.assets.enabled = true
+    config.active_storage.replace_on_assign_to_many = true
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

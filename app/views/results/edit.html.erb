@@ -3,7 +3,24 @@
 <br>
 <h4><%= @question.content %></h4>
 <br>
+<% if @question.audio.attached? %>
+  <div>
+    <audio class='audio' controls='controls'>
+      <source type='audio/mpeg' src=<%= rails_blob_url(@question.audio) %>>
+    </audio>
+  </div>
+<% end %>
+
+<div class='preview-images six-grid'>
+  <% @question.images.each do |image| %>
+    <div class='preview-img-wrap'>
+      <%= image_tag image %>
+    </div>
+  <% end %>
+</div>
+
 <p><small><i>Please select one of the following answers:</p></small></i>
+
 <fieldset>
   <div class="field">
     <%= form_tag(result_path(@result), method: :put) %>

@@ -4,18 +4,35 @@
   <%= link_to "Edit Quiz", edit_quiz_path(@quiz), class: 'btn btn-primary btn-mini' %>
 <% end %>
 <% if can? :destroy, @quiz %>
-  <%= link_to "Delete Quiz", @quiz, method: :delete, class: 'btn btn-primary btn-mini btn-danger', data: { confirm: 'Are you sure you want to delete this quiz?' } %> 
-<% end %>  
+  <%= link_to "Delete Quiz", @quiz, method: :delete, class: 'btn btn-primary btn-mini btn-danger', data: { confirm: 'Are you sure you want to delete this quiz?' } %>
+<% end %>
 <br><br>
 <ol class="questions">
-<% @questions.each do |question| %>
-  <li>
-    <%= question.content %>
-    <ol class="answers">
-      <% question.answers.each do |answer| %>
-        <li><%= answer.content %></li>
+<div class='preview-quiz'>
+  <% @questions.each do |question| %>
+    <li>
+      <%= question.content %>
+      <% if question.audio.attached? %>
+        <div>
+          <audio class='audio' controls='controls'>
+            <source type='audio/mpeg' src=<%= rails_blob_url(question.audio) %>>
+          </audio>
+        </div>
       <% end %>
-    </ol>
-  </li>
-<% end %>
+      <div class='preview-images six-grid'>
+        <% question.images.each do |image| %>
+          <div class='preview-img-wrap'>
+            <%= image_tag image %>
+          </div>
+        <% end %>
+      </div>
+      <br>
+      <ol class="answers">
+        <% question.answers.each do |answer| %>
+          <li><%= answer.content %></li>
+        <% end %>
+      </ol>
+    </li>
+  <% end %>
+</div>
 </ol>

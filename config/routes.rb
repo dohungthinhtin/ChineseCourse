@@ -27,6 +27,7 @@ StrategicHR::Application.routes.draw do
       get :search
     end
   end
+  resources :images, only: [:destroy]
   resources :certificates, only: [:show, :index]
   resources :reports, only: [:index]
   resources :attempts
