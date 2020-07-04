@@ -1,3 +1,6 @@
+//*= require_tree .
+//*= require_self
+
 @import "bootstrap";
 @import "font-awesome";
 @import "theme-style";
@@ -21,4 +24,28 @@
 .grid {
   display: grid;
   grid-template-columns: auto auto auto;
+}
+
+.six-grid{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.preview-images {
+  img{
+    width: 100px;
+    height: 100px;
+  }
+
+  .preview-img-wrap {
+    position: relative;
+    width: 128px;
+
+    .close {
+      position: absolute;
+      top: -15px;
+      right: 15px;
+      z-index: 100;
+    }
+  }
 }

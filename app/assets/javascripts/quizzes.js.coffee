@@ -39,7 +39,10 @@ initEventAutoComplete = (inputElement) ->
         if isNaN(data)
           answers = data.answers
           $(this).closest('fieldset').find '.add_fields'
-          $(item).closest('fieldset').find('.answers-group').html('')
+          oldAnswer = $(item).closest('fieldset').find('.answers-group .remove_fields')
+          $.each oldAnswer, (_index, answer) ->
+            $(answer).click()
+
           $.each answers, (_index, answer) ->
             $(item).closest('fieldset').find('.add_fields').click()
             newestAnswer = $(item).closest('fieldset').find('.answers-group fieldset:last')

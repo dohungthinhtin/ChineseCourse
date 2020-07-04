@@ -34,7 +34,7 @@ class AttemptsController < ApplicationController
     @num_questions = [@quiz.questions.count, @quiz.num_questions_to_show].min
 
     # randomly pick questions for the quiz
-    @questions = @quiz.questions.sample(@num_questions)
+    @questions = @quiz.questions
 
     #for each of the questions, create a result and set the correct answer
     # store the results as a linked list for traversing in views

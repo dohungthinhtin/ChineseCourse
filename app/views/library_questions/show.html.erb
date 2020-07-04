@@ -7,6 +7,20 @@
 <br><br>
 <ol class="questions">
   <%= @library_question.content %>
+  <% if @library_question.audio.attached? %>
+    <div>
+      <audio class='audio' controls='controls'>
+        <source type='audio/mpeg' src=<%= rails_blob_url(@library_question.audio) %>>
+      </audio>
+    </div>
+  <% end %>
+  <div class='preview-images six-grid'>
+    <% @library_question.images.each do |image| %>
+      <div class='preview-img-wrap'>
+        <%= image_tag image %>
+      </div>
+    <% end %>
+  </div>
   <ol class="answers">
     <% @library_question.answers.each do |answer| %>
       <li><%= answer.content %></li>

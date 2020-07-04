@@ -9,9 +9,30 @@
 
     <div class='col-md-8 grid answers-group'>
       <%= f.fields_for :answers do |answer| %>
-      <%= render 'answer_fields', f: answer, locals: {question_id: :id, question_content: :content} %>
-    <% end %>
+        <%= render 'answer_fields', f: answer, locals: {question_id: :id, question_content: :content} %>
+      <% end %>
     </div>
-  <%= link_to_add_fields "Add Answer", f, :answers %>
+    <%= link_to_add_fields "Add Answer", f, :answers %>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-4'>
+       <%= f.file_field :images, multiple: true, accept: '.png, .jpg, jpeg', 'data-controller': 'handle-image-upload', 'data-action': 'change->handle-image-upload#PreviewImage' %>
+       <%= f.file_field :audio, accept: '.mp3' %>
+    </div>
+
+    <div class='col-md-8 preview-images six-grid'>
+      <% f.object.images.each do |image| %>
+        <div class='preview-img-wrap'>
+          <span class="close"
+            image-id="<%= image.id %>"
+            data-controller= 'handle-image-upload'
+            data-action= 'click->handle-image-upload#DeleteImage'>&times;</span>
+          <%= image_tag image, id: image.id %>
+        </div>
+       <% end %>
+    </div>
+  </div>
+
 </fieldset>
-<br>
+<hr>
